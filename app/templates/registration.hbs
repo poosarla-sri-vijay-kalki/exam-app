@@ -1,0 +1,22 @@
+<h2>Registration Form</h2>
+<h3>{{this.result}}</h3>
+<form id="myform">
+    <div id="userdetails">
+        <label><span>User Name:</span></label>
+        <Input @value={{this.user}} id="uname"></Input>
+        <br>
+        <label for="lname">Password:</label>
+        <Input @value={{this.password}} id="pass" type="password"></Input>
+        <br>
+        <label for="lname">Re Enter-Password:</label>
+        <Input id="rpass" type="password"></Input>
+        <br>
+        <select name="profile" id="profile">
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+        </select>
+        <br>
+        <button type="button" {{on 'click' this.regiester}}>submit</button>
+    </div>
+    <LinkTo @route="login" class="button">login</LinkTo>
+</form>

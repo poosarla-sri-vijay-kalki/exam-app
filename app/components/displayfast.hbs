@@ -1,0 +1,39 @@
+<table>
+    <tr>
+        <th>
+            <p>StudentName</p>
+        </th>
+        <th>
+            <p>TecherName</p>
+        </th>
+        <th>
+            <p>TopicName</p>
+        </th>
+        <th>
+            <p>Marks</p>
+        </th>
+        <th>
+            <p>Duration(secs)</p>
+        </th>
+    </tr>
+    {{#each @details as |item|}}
+    <tr>
+        <th>
+            <p>{{item.studentName}}</p>
+        </th>
+        <th>
+            <p>{{item.teacherName}}</p>
+        </th>
+        <th>
+            <p>{{item.topic}}</p>
+        </th>
+        <th>
+            <p>{{item.marks}}</p>
+        </th>
+        <th>
+            <p>{{item.duration}}</p>
+        </th>
+    </tr>
+    {{/each}}
+
+</table>

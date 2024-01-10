@@ -1,0 +1,24 @@
+<div id="examQues" style="display: block">
+    <h2 id="result"></h2>
+    <form id="question1">
+        {{this.status}}
+        <label>{{this.getI}})Enter the question</label><br>
+        <Input id="question" /><br>
+        <label>option 1</label><br>
+        <Input id="op1" /><br>
+        <label>option 2</label><br>
+        <Input id="op2" /><br>
+        <label>option 3</label><br>
+        <Input id="op3" /><br>
+        <label>option 4</label><br>
+        <Input id="op4" /><br>
+        <label>Enter the correct option(ENTER ONLY NUMBERS FROM 1-4)</label><br>
+        <Input id="co" /><br>
+        <Input type="button" {{on 'click' this.add}} value="Save and Next" />
+        <Input type="button" {{on 'click' this.previous}} value="previous question" /><br>
+        <Input type="button" {{on 'click' this.submit}} value="submit" />
+    </form>
+    <div>
+        <Input type="button" {{on 'click' goBack}} value="back" />
+    </div>
+</div>

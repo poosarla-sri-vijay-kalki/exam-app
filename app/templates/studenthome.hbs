@@ -1,0 +1,69 @@
+<div>
+    <h2>Home</h2>
+    <h3>list of exam to be attempted by you </h3>
+    <button type="button" id="newque" {{on 'click' this.showtopics}}>show</button>
+    <div id="examtopics" style="display: none">
+        <table>
+            <tr>
+                <th>Topic Name</th>
+                <th>Topic Description</th>
+                <th>Teacher Name</th>
+                <th>Exam Link</th>
+            </tr>
+            {{#each this.topics as |topic|}}
+            <tr>
+                <td>
+                    <h4>{{topic.Topic}}</h4>
+                </td>
+                <td>
+                    <h4>{{topic.Des}}</h4>
+                </td>
+                <td>
+                    <h4>{{topic.Teacher}}</h4>
+                </td>
+                <td><button {{on 'click' (fn this.goToTopic topic.topicId)}}>Click Here</button></td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <p>{{this.status}}</p>
+    <h3>History</h3>
+    <button {{on 'click' this.getHistory}}>History</button>
+    <div id="history" style="display: none">
+        <table>
+            <tr>
+                <th>Topic Name</th>
+                <th>Teacher Name</th>
+                <th>Exam marks</th>
+            </tr>
+            {{#each this.history as |topic|}}
+            <tr>
+                <td>
+                    <h4>{{topic.topic}}</h4>
+                </td>
+                <td>
+                    <h4>{{topic.teacher}}</h4>
+                </td>
+                <td>
+                    <h4>{{topic.marks}}</h4>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+    <p>{{this.historystatus}}</p>
+    <div>
+        <select name="vote" id="vote">
+            {{#each this.teachers as |item|}}
+            <option value={{item}}>{{item}}</option>
+            {{/each}}
+
+            {{!-- <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option> --}}
+        </select>
+        <button id="voteButton" {{on 'click' this.submitVote}}>Submit Vote</button>
+        {{!-- <button id="changeVoteButton" {{on 'click' this.changeVote}}>Submit Vote</button> --}}
+
+    </div>
+    {{this.votestatus}}
+</div>

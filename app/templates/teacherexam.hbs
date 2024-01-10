@@ -1,0 +1,24 @@
+<div>
+    {{!-- <Input type="button" {{on 'click' this.getQuestions}} value=" show questions" /> --}}
+    {{!-- <Input type="button" {{on 'click' this.addQuestion}} value=" Add question" /> --}}
+    <div id="qdis">
+        <h3 id="status">{{this.status}}</h3>
+        <div id="questions" style="display: none">
+            {{!-- <Input type="button" {{on 'click' this.edit}} value="Edit question" /> --}}
+            <h3>{{this.qno}}) <Input id="Question" value={{this.Q}} disabled="disabled" /></h3>
+            <label>option 1</label><br><Input id="op1" name="qops" value={{this.O1}} disabled="true" /><br>
+            <label>option 2</label><br><Input id="op2" name="qops" value={{this.O2}} disabled="true" /> <br>
+            <label>option 3</label><br><Input id="op3" name="qops" value={{this.O3}} disabled="true" /> <br>
+            <label>option 4</label><br><Input id="op4" name="qops" value={{this.O4}} disabled="true" /> <br>
+            correct Answer:<br><Input id="ca" name="qops" value={{this.ca}} disabled="true" /><br>
+            <Input type="button" {{on 'click' this.submit}}style="display: none" id="submitedit" value=" submit edit" />
+            <Input type="button" {{on 'click' previousQuestion}} id="next" style="display: block"
+                value="previous Question" />
+            <Input type="button" {{on 'click' showQuestions}} id="nex" style="display: block" value="Next Question" />
+        </div>
+    </div>
+    {{!-- <Input type="button" {{on 'click' this.logout}} id="logout" style="display: None" value="Logout" /> --}}
+    <div>
+        <Input type="button" {{on 'click' goBack}} value="Back" />
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+    <h2 id="loginHeader">Log-In</h2>
+    <h3>{{this.result}}</h3>
+    <form id="myForm">
+        User Name:
+        <Input id="uname"></Input>
+        <br>
+        Password:
+        <Input id="pass" type="password"></Input>
+        <br>
+        Profile
+        <select name="profile" id="profile">
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+        </select>
+        <br>
+        <button type="button" {{on 'click' this.checkLogin}}>Submit</button>
+        <LinkTo @route="registration" class="button">Registration</LinkTo>
+        <div>
+            <Input type="button" {{on 'click' goHome}} value="Home" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,175 @@
+<h2>Home</h2>
+<div>
+    <h3 id="status">{{this.status}}
+    </h3>
+    <div id="paperDetails" style="display: none">
+        <form>
+            <h2>Enter the New Topic and Decription</h2>
+            <h2 id="status"></h2><br>
+            <label>Enter topic name</label>
+            <Input id="topic"></Input>
+            <br>
+            <label>Enter Description</label>
+            <Input id="des"></Input>
+            <br>
+            <button type="button" {{on 'click' this.addNewTopic}}>Submit</button>
+        </form>
+    </div>
+    <div>
+        <button type="button" {{on 'click' this.addQuestions}} id="addQueButton" style="display: none">Add
+            Questions</button><br>
+    </div>
+    <div id="addTopicButton">
+        New Topic
+        <button type="button" {{on 'click' this.openForm}}>Add Topic</button><br>
+    </div>
+    <h4>Dash Board</h4>
+    <div>
+        Exams Published
+        <button type="button" id="showTopics" {{on 'click' this.showTopics}}>Show</button>
+    </div>
+    <div id="examTopics" style="display: none">
+        <table>
+            <tr>
+                <th>
+                    <p>Topic Name </p>
+                </th>
+                <th>
+                    <p>Topic Description </p>
+                </th>
+
+                <th>
+                    <p> review Link </p>
+                    <p> </p>
+                </th>
+                <th>
+                    <p> Delete topic </p>
+                </th>
+            </tr>
+            {{#each this.topics as |topic|}}
+            <tr>
+                <td>
+                    <h4>{{topic.Topic}}</h4>
+                </td>
+                <td>
+                    <h4>{{topic.Des}}</h4>
+                </td>
+                <td>
+                    <button {{on 'click' (fn this.goToTopic topic.topic_id)}}>Click Here</button>
+                </td>
+                <td>
+                    <button {{on 'click' (fn this.deleteTopic topic.topic_id)}}>Click Here</button>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+
+    </div>
+    <p>{{this.allTopicStatus}}</p>
+    <div>
+        Topics not answered by anyone
+        <button type="button" id="showNotAnsTopics" {{on 'click' this.showNotAnsTopics}}>Show </button>
+        <Displaytopic @topics={{this.noStudentTopic}} @show={{false}} />
+        <p>{{this.NotAnsTopicstatus}}</p>
+    </div>
+    <div>
+        Topics with low Percentage
+        <button type="button" id="showFailTopics" {{on 'click' this.showFailTopics}}>Show </button>
+        <Displaytopic @topics={{this.failtopics }} @show={{false}} />
+        <p>{{this.failTopicstatus}}</p>
+    </div>
+    <h4>Statistics</h4>
+    <div>
+        Teachers with all topics having better percentage
+        <button type="button" id="allteacherpass" {{on 'click' this.allteacherpass}}>Show </button>
+        <div>
+            <ul>
+                {{#each this.goodteachers as |teacher|}}
+                <li>
+
+                    <p>{{teacher.uname}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <p id="metric1">{{this.metric1}}</p>
+    </div>
+    <div>
+        Teachers with No failed students
+        <button type="button" id="nofail" {{on 'click' this.nofail}}>Show topics</button>
+        <div>
+            <ul>
+                {{#each this.nofailteacher as |teacher|}}
+                <li>
+                    <p>{{teacher.uname}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <p id="metric2">{{this.metric2}}</p>
+    </div>
+    <div>
+        Teachers with most number of votes
+        <button type="button" id="bestTeacherbyVotes" {{on 'click' this.bestTeacherbyVotes}}>Show</button>
+        <div id="bestTeacherbyVotes">
+            <ul>
+                {{#each this.teacherbyVotes as |teacher|}}
+                <li>
+
+                    <p>{{teacher.teacherName}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <p>{{ this.teacherbyVoteStatus}}</p>
+    </div>
+    <div>
+        Best Teacher based on the average Pass Percentage
+        <button type="button" id="bestTeacher" {{on 'click' bestTeache}}>Show</button>
+        <table id="table" style="display: none">
+            <tr>
+                <th>
+                    <h4>Techer Name</h4>
+                </th>
+                <th>
+                    <h4>percentage</h4>
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    <p>{{this.bestTeacher.uname}}</p>
+                </th>
+                <th>
+                    <p>{{this.bestTeacher.percent}}</p>
+                </th>
+            </tr>
+        </table>
+        <p>{{this.bestTeacherStatus}}</p>
+    </div>
+
+    <h3>Speed Statistics</h3>
+    <div>
+        fastest Student among all
+        <button type="button" id="allteacherpass" {{on 'click' this.fastestOfAll}}>Show </button>
+        <div id="fastofall" style="display: none">
+            <Displayfast @details={{this.fastofall}} />
+        </div>
+        {{this.totalSpeed}}
+    </div>
+    <div>
+        fastest students based on topics
+        <button type="button" id="allteacherpass" {{on 'click' this.fastestOftopics}}>Show </button>
+        <div id="fastoftopic" style="display: none">
+            <Displayfast @details={{this.fastoftopics}} />
+        </div>
+        {{this.SpeedByTopic}}
+    </div>
+    <div>
+        fastest students based on Teacher
+        <button type="button" id="allteacherpass" {{on 'click' this.fastestOfTeacher}}>Show </button>
+        <div id="fastofteacher" style="display: none">
+            <Displayfast @details={{this.fastofteachers}} />
+        </div>
+        {{this.SpeedByTeacher}}
+    </div>
+</div>

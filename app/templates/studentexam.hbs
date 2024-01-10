@@ -1,0 +1,36 @@
+<div>
+    <h3>Questions</h3>
+    {{this.date1}}
+    <h4 id="stat">{{this.status}}</h4>
+    <div id="qdis" style="display: none">
+        <h1>{{this.Topi}}</h1>
+        <form id="questions">
+            <h4>{{this.qno}}) {{this.Q}}</h4>
+            <Input type="radio" id="op1" name="qops" value="1" />{{this.O1}}<br>
+            <Input type="radio" id="op2" name="qops" value="2" /> {{this.O2}}<br>
+            <Input type="radio" id="op3" name="qops" value="3" /> {{this.O3}}<br>
+            <Input type="radio" id="op4" name="qops" value="4" /> {{this.O4}}<br>
+        </form>
+    </div>
+    <div id="prevNextButtons">
+        <Input type="button" {{on 'click' showquestions}} id="next" style="display: block" value="Next Question" />
+        <Input type="button" {{on 'click' previousquestion}} id="prev" style="display: block"
+            value="previous Question" />
+    </div>
+    <div id="submitButton" style="display: none">
+        <Input type="button" {{on 'click' submitanswers}} id="submit" style="display: block" value="submit" />
+    </div>
+    <Input type="button" {{on 'click' goBack}} value="back" />
+    {{!-- <Input type="button" {{on 'click' stop}} value="stop" /> --}}
+</div>
+{{!-- <Input type="button" {{on 'click' getquestions}} id="modelid" value="getQuestions"></Input> --}}
+{{!-- <Input type="button" {{on 'click' this.logout}} id="logout" style="display: None" value="Logout" /> --}}
+
+
+{{!--
+
+{{#each this.options as |option index|}}
+<Input type="radio" id="op{{index}}" name="qops" value="{{index}}" />{{option}}<br>
+{{/each}}
+
+--}}

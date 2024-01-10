@@ -1,0 +1,10 @@
+<div>
+    {{!-- <button type="button" {{on 'click' this.logout}}>logout</button> --}}
+    <ul>
+        {{#each @topics as |topic|}}
+        <li>
+            <p>{{topic.Topic}}</p>
+        </li>
+        {{/each}}
+    </ul>
+</div>
